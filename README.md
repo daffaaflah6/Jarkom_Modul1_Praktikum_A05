@@ -61,6 +61,31 @@ Urutan 8 : Coklat NC (tidak dipakai)
 ![5 3](https://user-images.githubusercontent.com/52326074/96358007-c36f0c00-112c-11eb-8060-42cf094bf4f4.jpg)
 
 - Seseorang menyimpan file zip melalui FTP dengan nama "Answer.zip". Simpan dan Buka file "Open This.pdf" di Answer.zip. Untuk mendapatkan password zipnya, temukan dalam file zipkey.txt (passwordnya adalah isi dari file txt tersebut).
+
+Langkah : 
+
+Mencari file `Answer.zip` terlebih dahulu dengan melakukan penyaringan pada display filter, `ftp-data contains “Answer.zip”`
+
+![no 6 answer zip](https://user-images.githubusercontent.com/56763600/96361332-62a8f900-1157-11eb-851a-df98655116d2.png)
+
+Kemudian klik kanan di salah satu port, pilih Follow -> TCP Stream. Kemudian pilih `raw` dan save as dalam bentuk .zip. 
+
+Lalu buka file Answer.zip pada tempat penyimpanan komputer kita. Dan akan menemukan file Open This.pdf. 
+
+![no 6 openthis pdf](https://user-images.githubusercontent.com/56763600/96361339-6e94bb00-1157-11eb-95fc-da9e46104e7f.png)
+
+Saat dibuka, akan dimintai password. Untuk mendapatkan password, kita harus mencari file zipkey.txt dengan melakukan penyaringan pada wireshark `ftp-data contains "zipkey.txt"`
+
+![no 6 nyari zipkey](https://user-images.githubusercontent.com/56763600/96361360-9421c480-1157-11eb-9040-2398fa4920fd.png)
+
+Kemudian kita follow TCP Stream. Lalu hasilnya akan tampak seperti ini. 
+
+![no 6 zipkey](https://user-images.githubusercontent.com/56763600/96361346-76545f80-1157-11eb-8b63-0091c71f36d4.png)
+
+Password akan digunakan untuk membuka pdf tadi. Maka akan tampak hasil pdf seperti dibawah ini. 
+
+![no 6 openthis pdf udah kebuka](https://user-images.githubusercontent.com/56763600/96361365-a0a61d00-1157-11eb-9c4e-8124ac0dbf5c.png)
+
 - Ada 500 file zip yang disimpan ke FTP Server dengan nama 1.zip, 2.zip, ..., 500.zip. Salah satunya berisi pdf yang berisi puisi. Simpan dan Buka file pdf tersebut.
 - Cari objek apa saja yang didownload (RETR) dari koneksi FTP dengan Microsoft FTP Service!
 - Cari username dan password ketika login FTP pada localhost!
