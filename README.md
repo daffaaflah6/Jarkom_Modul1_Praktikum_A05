@@ -176,4 +176,4 @@ Masukkan syntax `dst host monta.if.its.ac.id` dan klik Wifi. Pastikan kita sudah
 ![no 15 monta](https://user-images.githubusercontent.com/56763600/96362767-347ce680-1162-11eb-9678-559b41221960.png)
 
 
-**TERIMA KASIH
+# TERIMA KASIH
