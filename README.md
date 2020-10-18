@@ -87,13 +87,93 @@ Password akan digunakan untuk membuka pdf tadi. Maka akan tampak hasil pdf seper
 ![no 6 openthis pdf udah kebuka](https://user-images.githubusercontent.com/56763600/96361365-a0a61d00-1157-11eb-9c4e-8124ac0dbf5c.png)
 
 - Ada 500 file zip yang disimpan ke FTP Server dengan nama 1.zip, 2.zip, ..., 500.zip. Salah satunya berisi pdf yang berisi puisi. Simpan dan Buka file pdf tersebut.
+
+Langkah :
+
+Mencari file zip yang mengandung Yes.pdf
+
+![no 7 yes pdf](https://user-images.githubusercontent.com/56763600/96361912-30e66100-115c-11eb-8b19-1039ab35f229.png)
+
+Mencari 473.zip
+
+![no 7 473 zip](https://user-images.githubusercontent.com/56763600/96361913-33e15180-115c-11eb-83e8-7c4e4c59ed0d.png)
+
+Kemudian klik kanan di salah satu data, pilih Follow -> TCP Stream. Kemudian pilih `raw` dan save as dalam bentuk .zip. 
+
+Kemudian file akan masuk ke tempat penyimpanan komputer. Klik file tersebut dan cari yes.pdf. Akan muncul tampilan seperti ini. 
+
+![no 7 yes pdf isi](https://user-images.githubusercontent.com/56763600/96361918-3cd22300-115c-11eb-9931-34e0ac9cd72e.png)
+
+
 - Cari objek apa saja yang didownload (RETR) dari koneksi FTP dengan Microsoft FTP Service!
+
+Cari ip address Microsoft FTP Service
+
+![no 8 ftp service](https://user-images.githubusercontent.com/56763600/96362118-a0a91b80-115d-11eb-997a-3a243c15973d.jpg)
+
+Kemudian cari objek yang didownload dengan Microsoft FTP Service (ip address : 198.246.117.106). Maka hasilnya akan seperti ini
+
+![no 8 retr ](https://user-images.githubusercontent.com/56763600/96362119-a30b7580-115d-11eb-9702-bf573889f01c.png)
+
+
 - Cari username dan password ketika login FTP pada localhost!
+
+Dengan perintah `ftp.request.command == "USER" or ftp.request.command == "PASS"`
+
+![no 9 username](https://user-images.githubusercontent.com/56763600/96362182-20cf8100-115e-11eb-970d-aa252e0f3b2a.png)
+
 - Cari file .pdf di wireshark lalu download dan buka file tersebut! clue: "25 50 44 46"
+
+"25 50 44 46" adalah file signature untuk file dengan format .pdf. Pertama-tama cari yang hex valuenya 25 50 44 56. Lalu cari file .pdf dengan syntax `frame contains "application/pdf"`
+
+![no 10 (1)](https://user-images.githubusercontent.com/56763600/96362551-b3711f80-1160-11eb-94a2-c231fce7167d.png)
+
+Follow TCP Stream 
+
+![no 10 (2)](https://user-images.githubusercontent.com/56763600/96362556-b9670080-1160-11eb-8cdf-4ca41ce4078b.png)
+
+Lalu setelah save as pdf, buka file pdf tersebut pada tempat penyimpanan local komputer kita. Akan tampak tampilan seperti ini.
+
+![no 10 hasil](https://user-images.githubusercontent.com/56763600/96362559-bb30c400-1160-11eb-9c69-9c81e3f73dd5.png)
+
+
+
 
 # B. Capture Filter
 - Filter sehingga wireshark hanya mengambil paket yang mengandung port 21!
+
+Port 21 akan menampilkan akses yang ada pada local kita. Dengan membuka command prompt dan akses ftp localhost kita. 
+Pada wireshark kita masukkan syntax `port 21` lalu klik `adapter for lookback traffic capture`. 
+
+![11 port 21 (1)](https://user-images.githubusercontent.com/56763600/96362696-b15b9080-1161-11eb-8ecc-0114266b75b6.png)
+
+![port 21](https://user-images.githubusercontent.com/56763600/96362705-c9331480-1161-11eb-9d1e-eb2bd561a332.png)
+
+
 - Filter sehingga wireshark hanya mengambil paket yang berasal dari port 80!
+
+Masukkan syntax `src port 80` dan klik Wifi
+
+![no 12 port 80](https://user-images.githubusercontent.com/56763600/96362757-2a5ae800-1162-11eb-9f7e-df8560dfccbf.png)
+
 - Filter sehingga wireshark hanya menampilkan paket yang menuju port 443!
+
+Masukkan syntax `dst port 443` dan klik Wifi
+
+![13 port 443](https://user-images.githubusercontent.com/56763600/96362760-2dee6f00-1162-11eb-957b-2bf28fa5b877.png)
+
 - Filter sehingga wireshark hanya mengambil paket yang berasal dari ip kalian!
+
+Masukkan ip address dan klik Wifi
+
+![no 14 ip](https://user-images.githubusercontent.com/56763600/96362762-32b32300-1162-11eb-8eed-6c872517cc7d.png)
+
+
 - Filter sehingga wireshark hanya mengambil paket yang tujuannya ke monta.if.its.ac.id!
+
+Masukkan syntax `dst host monta.if.its.ac.id` dan klik Wifi. Pastikan kita sudah mengakses monta.if.its.ac.id
+
+![no 15 monta](https://user-images.githubusercontent.com/56763600/96362767-347ce680-1162-11eb-9678-559b41221960.png)
+
+
+**TERIMA KASIH
